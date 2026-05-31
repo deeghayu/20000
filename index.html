@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ශාක්‍යසිංහ මංගල්‍යය - 2570</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Noto+Sans+Sinhala:wght@300;500;700&family=Poppins:wght@400;600;700&display=swap');
+
+        /* --- WAITING SCREEN STYLE --- */
+        #loader-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #070502; z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: #ffd700; cursor: pointer; transition: opacity 1s ease;
+        }
+        #lotus-loader { width: 250px; animation: rotateChakra 5s linear infinite; }
+        /* ---------------------------- */
+
+        :root { --gold: #ffd700; --deep-gold: #b8860b; --bg-dark: #070502; --card-bg: rgba(20, 16, 10, 0.85); --border-gold: rgba(255, 215, 0, 0.2); }
+        body, html { margin: 0; padding: 0; background-color: var(--bg-dark); color: #ffffff; font-family: 'Noto Sans Sinhala', sans-serif; overflow-x: hidden; scroll-behavior: smooth; position: relative; min-height: 100vh; }
+        .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.06) 0%, transparent 75%); z-index: 1; pointer-events: none; }
+        #lanternBox { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 2; pointer-events: none; overflow: hidden; display: block !important; }
+        .real-vesak-kudu { position: absolute; bottom: -100px; opacity: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; animation: jsFloatUp 14s linear infinite; }
+        .kudu-body { width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; position: relative; }
+        .kudu-body::before { content: ''; position: absolute; top: -20px; left: -20px; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; }
+        .kudu-body::after { content: ''; position: absolute; top: 0; left: -20px; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; }
+        .kudu-tails { display: flex; justify-content: space-between; width: 26px; margin-top: 20px; }
+        .kudu-tails::before, .kudu-tails::after { content: ''; width: 4px; height: 18px; border-radius: 2px; opacity: 0.8; }
+        #mainHomepage { max-width: 1050px; margin: 0 auto; padding: 40px 20px; text-align: center; display: block; position: relative; z-index: 10; }
+        .dharma-chakra { font-size: 4.5rem; color: var(--gold); text-shadow: 0 0 25px rgba(255, 215, 0, 0.6); animation: rotateChakra 25s linear infinite; margin-bottom: 10px; display: inline-block; }
+        @keyframes rotateChakra { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        h1 { font-family: 'Abhaya Libre', serif; font-size: clamp(2.5rem, 6vw, 4rem); color: var(--gold); margin: 0 0 10px 0; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .sub-header { color: #ffd700; font-size: clamp(1rem, 2.5vw, 1.25rem); margin-bottom: 25px; display: block; letter-spacing: 1px; font-weight: 500; }
+        .vesak-greeting-card { background: radial-gradient(circle at 50% 50%, rgba(139, 92, 26, 0.22) 0%, rgba(15, 11, 5, 0.95) 80%); border: 2px solid var(--gold); outline: 6px double rgba(255, 215, 0, 0.3); outline-offset: -12px; border-radius: 24px; padding: 40px 35px; max-width: 780px; margin: 0 auto 40px auto; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 30px rgba(255, 215, 0, 0.1); backdrop-filter: blur(12px); }
+        .vesak-greeting-card::before, .card-corner-decor-tr, .card-corner-decor-bl, .card-corner-decor-br { content: '❖'; position: absolute; color: var(--gold); font-size: 1.2rem; }
+        .vesak-greeting-card::before { top: 15px; left: 15px; } .card-corner-decor-tr { top: 15px; right: 15px; } .card-corner-decor-bl { bottom: 15px; left: 15px; } .card-corner-decor-br { bottom: 15px; right: 15px; }
+        .buddha-container { position: relative; width: 240px; height: 240px; margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; }
+        .budu-res-halo { position: absolute; width: 190px; height: 190px; border-radius: 50%; background: conic-gradient(from 0deg, rgba(255,0,0,0.85) 0%, rgba(255,165,0,0.85) 15%, rgba(255,255,0,0.85) 30%, rgba(0,128,0,0.85) 45%, rgba(0,0,255,0.85) 60%, rgba(75,0,130,0.85) 75%, rgba(255,0,0,0.85) 100%); filter: blur(15px); animation: rotateRes 7s linear infinite; z-index: 1; opacity: 0.85; box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+        .budu-res-glow { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(255,240,150,1) 0%, transparent 70%); z-index: 2; filter: blur(10px); animation: pulseGlow 2s ease-in-out infinite alternate; }
+        .uploaded-buddha-img { position: relative; width: 210px; height: auto; z-index: 3; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)); animation: imageFloat 4s ease-in-out infinite alternate; }
+        @keyframes rotateRes { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes pulseGlow { 0% { transform: scale(0.92); opacity: 0.7; } 100% { transform: scale(1.08); opacity: 1; } }
+        @keyframes imageFloat { 0% { transform: translateY(0px) scale(0.98); } 100% { transform: translateY(-6px) scale(1.02); } }
+        .card-heading { font-family: 'Abhaya Libre', serif; font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--gold); margin: 0 0 20px 0; font-weight: 700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+        .card-body-text { color: #f5edd5; font-size: clamp(1rem, 2.2vw, 1.18rem); line-height: 1.9; margin: 0 0 25px 0; text-align: center; }
+        .card-signature { color: var(--gold); font-family: 'Abhaya Libre', serif; font-size: clamp(1.15rem, 2.5vw, 1.4rem); font-weight: 700; margin: 0; border-top: 1px dashed rgba(255, 215, 0, 0.3); padding-top: 20px; display: inline-block; width: 90%; text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+        .main-player-section { width: 100%; max-width: 850px; margin: 0 auto 25px auto; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 215, 0, 0.35); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95); aspect-ratio: 16/9; position: relative; background: #000; }
+        .main-player-section iframe { position: absolute; top: -15%; left: -1%; width: 102%; height: 130%; border: none; }
+        .pahan-peliya { display: flex; justify-content: center; gap: 25px; margin: 20px 0 35px 0; }
+        .pahan-container { display: inline-block; position: relative; }
+        .pahan-clay { width: 35px; height: 18px; background: linear-gradient(to bottom, #9c521f, #5e2f0e); border-radius: 0 0 50px 50px; box-shadow: 0 5px 10px rgba(0,0,0,0.5); }
+        .pahan-flame { width: 12px; height: 22px; background: linear-gradient(to top, #ff6a00, #ffca00, #ffffff); border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%; margin: 0 auto 2px auto; position: relative; animation: flicker 0.15s infinite alternate; box-shadow: 0 0 20px #ff9d00, 0 0 40px #ff6a00; }
+        @keyframes flicker { 0% { transform: scaleX(0.95) rotate(-1deg); opacity: 0.9; } 100% { transform: scaleX(1.05) rotate(1deg); opacity: 1; } }
+        .play-now-btn { background: linear-gradient(135deg, var(--gold), var(--deep-gold)); color: #000000; border: none; padding: 15px 40px; font-size: 1.15rem; font-weight: 700; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 25px rgba(255, 215, 0, 0.35); transition: all 0.3s ease; font-family: 'Noto Sans Sinhala', sans-serif; display: inline-flex; align-items: center; gap: 12px; margin-bottom: 25px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 35px; }
+        .card { background: rgba(20, 16, 10, 0.85); border: 1px solid var(--border-gold); border-radius: 20px; padding: 20px; cursor: pointer; text-align: left; transition: all 0.3s ease; backdrop-filter: blur(5px); }
+        .card-img-wrapper { width: 100%; height: 160px; overflow: hidden; border-radius: 12px; margin-bottom: 15px; border: 1px solid rgba(255, 215, 0, 0.1); }
+        .card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75); transition: transform 0.5s ease; }
+        .card:hover img { transform: scale(1.05); filter: brightness(0.9); }
+        .card .tag { color: var(--gold); font-size: 0.95rem; font-weight: bold; margin-bottom: 8px; display: block; font-family: 'Abhaya Libre', serif; }
+        .card p { color: #b0b0b0; line-height: 1.5; margin: 0; font-size: 0.88rem; }
+        #detailPage { max-width: 800px; margin: 0 auto; padding: 60px 20px; display: none; position: relative; z-index: 10; }
+        .back-btn { background: rgba(255, 215, 0, 0.08); border: 1px solid rgba(255, 215, 0, 0.25); color: var(--gold); padding: 12px 28px; border-radius: 50px; cursor: pointer; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 45px; transition: all 0.3s ease; }
+        .gatha-box { background: rgba(139, 92, 26, 0.15); border-left: 4px solid var(--gold); border-radius: 12px; padding: 25px; margin: 30px 0; text-align: center; font-family: 'Abhaya Libre', serif; font-size: 1.35rem; color: #f7e6c4; line-height: 1.8; }
+        .detail-body-text { color: #e0e0e0; font-size: 1.15rem; line-height: 1.9; text-align: justify; }
+        footer { margin-top: 70px; padding-top: 25px; border-top: 1px solid rgba(255, 215, 0, 0.08); text-align: center; }
+        .dev-badge { font-family: 'Poppins', sans-serif; color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.95rem; display: inline-block; }
+        .dev-name { font-weight: 700; background: linear-gradient(135deg, #ffe56f 0%, #ffc107 50%, #b8860b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @keyframes jsFloatUp { 0% { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; } 15% { opacity: 0.8; } 85% { opacity: 0.8; } 100% { transform: translateY(-135vh) rotate(25deg) scale(1.1); opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <div id="loader-screen">
+        <img src="image_96343a.png" id="lotus-loader">
+        <p style="margin-top:20px; font-family:'Abhaya Libre', serif; font-size:1.5rem;">පිවිසීමට නෙළුම් මල මත ක්ලික් කරන්න</p>
+    </div>
+
+    <div class="bg-overlay"></div>
+    <div id="lanternBox"></div>
+
+    <div id="mainHomepage">
+        <header>
+            <div class="dharma-chakra"><i class="fa-solid fa-dharmachakra"></i></div>
+            <h1>ශාක්‍යසිංහ මංගල්‍යය</h1>
+            <span class="sub-header">2570 ශ්‍රී සම්බුද්ධත්ව ජයන්ති උපහාරය</span>
+        </header>
+
+        <div class="vesak-greeting-card">
+            <div class="card-corner-decor-tr">❖</div><div class="card-corner-decor-bl">❖</div><div class="card-corner-decor-br">❖</div>
+            <div class="buddha-container">
+                <div class="budu-res-halo"></div>
+                <div class="budu-res-glow"></div>
+                <img class="uploaded-buddha-img" src="buddha.png.png" alt="Buddha">
+            </div>
+            <h2 class="card-heading">පින්බර වෙසක් මංගල්‍යයක් වේවා!</h2>
+            <p class="card-body-text">සියලු සිත් බුද්ධාලම්භන ප්‍රීතියෙන් සනහාලන, උතුම් වෙසක් පුර පසළොස්වක පොහෝ දිනය නිමිත්තෙන් ආමිස හා ප්‍රතිපත්ති පූජාවන්ට මුල්තැන දෙමින්, ලොව්තුරා බුදුරජාණන් වහන්සේ වදාළ ශ්‍රී සද්ධර්මයේ ආශිර්වාදය සිතේ දරාගනිමු.</p>
+            <h3 class="card-signature"><i class="fa-solid fa-hands-praying"></i> ගොකරැල්ල මධ්‍ය මහා විද්‍යාලයේ සිසු සිසුවියන්ගේ හා ආචාර්ය මණ්ඩලයේ උදාර වෙසක් සුබ පැතුමයි!</h3>
+        </div>
+
+        <div class="main-player-section">
+            <iframe id="vesakVideo" src="https://www.youtube.com/embed/SBRWnqemVJU?start=35&controls=0&showinfo=0&rel=0&iv_load_policy=3"></iframe>
+        </div>
+
+        <div class="pahan-peliya">
+            <div class="pahan-container"><div class="pahan-flame"></div><div class="pahan-clay"></div></div>
+            <div class="pahan-container"><div class="pahan-flame"></div><div class="pahan-clay"></div></div>
+            <div class="pahan-container"><div class="pahan-flame"></div><div class="pahan-clay"></div></div>
+            <div class="pahan-container"><div class="pahan-flame"></div><div class="pahan-clay"></div></div>
+            <div class="pahan-container"><div class="pahan-flame"></div><div class="pahan-clay"></div></div>
+        </div>
+
+        <button class="play-now-btn" onclick="startVideoNow()"><i class="fa-solid fa-play"></i> Play Now</button>
+
+        <div class="grid">
+            <div class="card" onclick="navigateToDetails('birth')">
+                <div class="card-img-wrapper"><img src="https://i.ytimg.com/vi/hduMQXJkELU/hqdefault.jpg"></div>
+                <span class="tag">බෝසතුන්ගේ උත්පත්තිය</span>
+                <p>උතුම් බෝසත් උත්පත්තියේ සියලු විස්තර වෙනම පිටුවකින් කියවීමට මෙතන Click කරන්න...</p>
+            </div>
+            <div class="card" onclick="navigateToDetails('enlightenment')">
+                <div class="card-img-wrapper"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9sWNfP1QWfxzlxtVKFtkSSEMgV-xieoE_4w&s"></div>
+                <span class="tag">උතුම් බුද්ධත්වය</span>
+                <p>ලොව්තුරා බුද්ධත්වයට පත්වීමේ සියලු විස්තර වෙනම පිටුවකින් කියවීමට මෙතන Click කරන්න...</p>
+            </div>
+            <div class="card" onclick="navigateToDetails('parinirvana')">
+                <div class="card-img-wrapper"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyqDaEsdklzgsFnBcB_8OMlNdkgVckCs2ZPg&s"></div>
+                <span class="tag">මහා පිරිනිවන් පෑම</span>
+                <p>මහා පිරිනිවන් පෑමේ සියලු විස්තර වෙනම පිටුවකින් කියවීමට මෙතන Click කරන්න...</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="dev-badge">Web Developed by <span class="dev-name">M.U.R.D.D. Fonseka</span></div>
+        </footer>
+    </div>
+
+    <div id="detailPage">
+        <button class="back-btn" onclick="backToHome()"><i class="fa-solid fa-arrow-left"></i> පෙර පිටුවට</button>
+        <div id="pageDynamicContent"></div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        
+        // Waiting Screen Logic
+        const loader = document.getElementById('loader-screen');
+        const lotusLoader = document.getElementById('lotus-loader');
+        lotusLoader.addEventListener('click', () => {
+            loader.style.opacity = '0';
+            setTimeout(() => { loader.style.display = 'none'; }, 1000);
+        });
+
+        const pageDataset = {
+            birth: { title: "උතුම් බෝසත් උත්පත්තිය", gatha: "ජාතෝ සකේ සුත්තපදේ මනුස්සෝ<br>ලෝකේ අගෝ අසමෝ සදේවකේ", mainText: "මහමායා දේවි මව් කුස පිළිසිඳගෙන දස මසක් ඇවෑමෙන්, වෙසක් පුර පසළොස්වක පොහෝ දිනක ලුම්බිණි සල් උයනේදී අප මහා බෝසතාණන් වහන්සේ මෙලොව උපත ලැබූ සේක." },
+            enlightenment: { title: "ලොව්තුරා බුද්ධත්වයට පත්වීම", gatha: "අනේකජාති සංසාරං - සන්ධාවිස්සං අනිබ්බිසං<br>ගහකාරකං ගවේසන්තෝ - දුක්ඛා ජාති පුනප්පුනං", mainText: "සය වසරක් මුළුල්ලේ අතිශය දුෂ්කර ක්‍රියා කොට, අවසානයේ මධ්‍යම ප්‍රතිපදාව ඔස්සේ බුද්ධගයාවේ ශ්‍රී මහා බෝධි මූලයේදී ලොව්තුරා බුද්ධත්වයට පත් වූ සේක." },
+            parinirvana: { title: "මහා පිරිනිවන් පෑම", gatha: "අනිච්චා වත සංඛාරා - උප්පාදවයධම්මිනෝ<br>උප්පජ්ජිත්වා නිරුජ්ඣන්ති - තේසං වූපසමෝ සුඛෝ", mainText: "පුරා වසර 45ක් මුළුල්ලේ ලෝක සත්වයා කෙරෙහි මහා කරුණාවෙන් යුතුව සදහම් දේශනා කොට, වයස අවුරුදු 80 දී කුසිනාරා නුවරදී අනුපාදිශේෂ නිර්වාණ ධාතුවෙන් බුදුරජාණන් වහන්සේ පිරිනිවන් පෑ සේක." }
+        };
+
+        function startVideoNow() { const video = document.getElementById('vesakVideo'); video.src = "https://www.youtube.com/embed/SBRWnqemVJU?start=35&autoplay=1&controls=0&showinfo=0&rel=0&iv_load_policy=3"; }
+        function navigateToDetails(id) { const data = pageDataset[id]; document.getElementById('mainHomepage').style.display = 'none'; document.getElementById('detailPage').style.display = 'block'; document.getElementById('pageDynamicContent').innerHTML = `<h2>${data.title}</h2><div class="gatha-box">${data.gatha}</div><p class="detail-body-text">${data.mainText}</p>`; window.scrollTo(0, 0); }
+        function backToHome() { document.getElementById('detailPage').style.display = 'none'; document.getElementById('mainHomepage').style.display = 'block'; window.scrollTo(0, 0); }
+        
+        function createVesakKudu() {
+            const lanternBox = document.getElementById('lanternBox');
+            for (let i = 0; i < 25; i++) {
+                const kuduWrapper = document.createElement('div');
+                kuduWrapper.className = 'real-vesak-kudu';
+                kuduWrapper.innerHTML = `<div class="kudu-body" style="border-top: 20px solid #ffca00; border-bottom: 20px solid #ffca00;"></div><div class="kudu-tails"></div>`;
+                kuduWrapper.style.left = `${(Math.random() * 92)}vw`;
+                kuduWrapper.style.animationDuration = `${(Math.random() * 6 + 10)}s`;
+                kuduWrapper.style.animationDelay = `${(Math.random() * 15)}s`;
+                lanternBox.appendChild(kuduWrapper);
+            }
+        }
+        window.addEventListener('load', createVesakKudu);
+    </script>
+</body>
+</html>
